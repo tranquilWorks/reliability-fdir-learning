@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "product": "reliability-fdir-learning",
+  "title": "Reliability, Diagnostics, and Fault-Tolerant Systems",
+  "purpose": "Learn how failures occur, how evidence reveals them, and how systems detect, isolate, recover, and degrade safely.",
+  "module_count": 24,
+  "progression_rule": "Complete modules in order until the first six are complete; later modules may be selected when their prerequisites are met.",
+  "interaction_contract": {
+    "environment": "MATLAB",
+    "notebook_format": "MATLAB scripts with %% Live Editor cells",
+    "lever_ui": "uifigure controls",
+    "required_sweeps": 2,
+    "required_broken_cases": 1,
+    "randomness": "seeded",
+    "base_matlab_preferred": true,
+    "learning_cycle": [
+      "read",
+      "visualize-baseline",
+      "move-one-lever",
+      "visualize-delta",
+      "read-and-explain"
+    ]
+  },
+  "modules": [
+    {
+      "number": 1,
+      "id": "P01",
+      "title": "Compare Series and Redundant Reliability",
+      "guiding_question": "How do required functions, redundancy, and common causes determine mission reliability?",
+      "phase": 1,
+      "phase_title": "Reliability fundamentals",
+      "slug": "compare-series-and-redundant-reliability",
+      "folder": "modules/01-compare-series-and-redundant-reliability",
+      "status": "implemented",
+      "implementation_batch": "P01",
+      "prerequisites": [],
+      "evidence_level": "simulated"
+    },
+    {
+      "number": 2,
+      "id": "P02",
+      "title": "Relate Hazard Rate to Survival",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you relate Hazard Rate to Survival?",
+      "phase": 1,
+      "phase_title": "Reliability fundamentals",
+      "slug": "relate-hazard-rate-to-survival",
+      "folder": "modules/02-relate-hazard-rate-to-survival",
+      "status": "scaffolded",
+      "implementation_batch": "P02",
+      "prerequisites": [
+        "P01"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 3,
+      "id": "P03",
+      "title": "Compute Availability from Failure and Repair",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you compute Availability from Failure and Repair?",
+      "phase": 1,
+      "phase_title": "Reliability fundamentals",
+      "slug": "compute-availability-from-failure-and-repair",
+      "folder": "modules/03-compute-availability-from-failure-and-repair",
+      "status": "scaffolded",
+      "implementation_batch": "P03",
+      "prerequisites": [
+        "P02"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 4,
+      "id": "P04",
+      "title": "Expose Common-Cause Failure",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you expose Common-Cause Failure?",
+      "phase": 1,
+      "phase_title": "Reliability fundamentals",
+      "slug": "expose-common-cause-failure",
+      "folder": "modules/04-expose-common-cause-failure",
+      "status": "scaffolded",
+      "implementation_batch": "P04",
+      "prerequisites": [
+        "P03"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 5,
+      "id": "P05",
+      "title": "Build a Fault Tree",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you build a Fault Tree?",
+      "phase": 2,
+      "phase_title": "Failure analysis",
+      "slug": "build-a-fault-tree",
+      "folder": "modules/05-build-a-fault-tree",
+      "status": "scaffolded",
+      "implementation_batch": "P05",
+      "prerequisites": [
+        "P04"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 6,
+      "id": "P06",
+      "title": "Run an FMEA",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you run an FMEA?",
+      "phase": 2,
+      "phase_title": "Failure analysis",
+      "slug": "run-an-fmea",
+      "folder": "modules/06-run-an-fmea",
+      "status": "scaffolded",
+      "implementation_batch": "P06",
+      "prerequisites": [
+        "P05"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 7,
+      "id": "P07",
+      "title": "Construct a Reliability Block Diagram",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you construct a Reliability Block Diagram?",
+      "phase": 2,
+      "phase_title": "Failure analysis",
+      "slug": "construct-a-reliability-block-diagram",
+      "folder": "modules/07-construct-a-reliability-block-diagram",
+      "status": "scaffolded",
+      "implementation_batch": "P07",
+      "prerequisites": [
+        "P06"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 8,
+      "id": "P08",
+      "title": "Prioritize Risk Quantitatively",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you prioritize Risk Quantitatively?",
+      "phase": 2,
+      "phase_title": "Failure analysis",
+      "slug": "prioritize-risk-quantitatively",
+      "folder": "modules/08-prioritize-risk-quantitatively",
+      "status": "scaffolded",
+      "implementation_batch": "P08",
+      "prerequisites": [
+        "P07"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 9,
+      "id": "P09",
+      "title": "Generate a Diagnostic Residual",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you generate a Diagnostic Residual?",
+      "phase": 3,
+      "phase_title": "Detection and isolation",
+      "slug": "generate-a-diagnostic-residual",
+      "folder": "modules/09-generate-a-diagnostic-residual",
+      "status": "scaffolded",
+      "implementation_batch": "P09",
+      "prerequisites": [
+        "P08"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 10,
+      "id": "P10",
+      "title": "Move a Fault Threshold",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you move a Fault Threshold?",
+      "phase": 3,
+      "phase_title": "Detection and isolation",
+      "slug": "move-a-fault-threshold",
+      "folder": "modules/10-move-a-fault-threshold",
+      "status": "scaffolded",
+      "implementation_batch": "P10",
+      "prerequisites": [
+        "P09"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 11,
+      "id": "P11",
+      "title": "Isolate Competing Faults",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you isolate Competing Faults?",
+      "phase": 3,
+      "phase_title": "Detection and isolation",
+      "slug": "isolate-competing-faults",
+      "folder": "modules/11-isolate-competing-faults",
+      "status": "scaffolded",
+      "implementation_batch": "P11",
+      "prerequisites": [
+        "P10"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 12,
+      "id": "P12",
+      "title": "Reason with Bayesian Diagnosis",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you reason with Bayesian Diagnosis?",
+      "phase": 3,
+      "phase_title": "Detection and isolation",
+      "slug": "reason-with-bayesian-diagnosis",
+      "folder": "modules/12-reason-with-bayesian-diagnosis",
+      "status": "scaffolded",
+      "implementation_batch": "P12",
+      "prerequisites": [
+        "P11"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 13,
+      "id": "P13",
+      "title": "Recover with a Watchdog",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you recover with a Watchdog?",
+      "phase": 4,
+      "phase_title": "Recovery and degradation",
+      "slug": "recover-with-a-watchdog",
+      "folder": "modules/13-recover-with-a-watchdog",
+      "status": "scaffolded",
+      "implementation_batch": "P13",
+      "prerequisites": [
+        "P12"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 14,
+      "id": "P14",
+      "title": "Retry Without Creating a Failure Loop",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you retry Without Creating a Failure Loop?",
+      "phase": 4,
+      "phase_title": "Recovery and degradation",
+      "slug": "retry-without-creating-a-failure-loop",
+      "folder": "modules/14-retry-without-creating-a-failure-loop",
+      "status": "scaffolded",
+      "implementation_batch": "P14",
+      "prerequisites": [
+        "P13"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 15,
+      "id": "P15",
+      "title": "Vote Across Redundant Channels",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you vote Across Redundant Channels?",
+      "phase": 4,
+      "phase_title": "Recovery and degradation",
+      "slug": "vote-across-redundant-channels",
+      "folder": "modules/15-vote-across-redundant-channels",
+      "status": "scaffolded",
+      "implementation_batch": "P15",
+      "prerequisites": [
+        "P14"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 16,
+      "id": "P16",
+      "title": "Enter Graceful Degradation and Safe State",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you enter Graceful Degradation and Safe State?",
+      "phase": 4,
+      "phase_title": "Recovery and degradation",
+      "slug": "enter-graceful-degradation-and-safe-state",
+      "folder": "modules/16-enter-graceful-degradation-and-safe-state",
+      "status": "scaffolded",
+      "implementation_batch": "P16",
+      "prerequisites": [
+        "P15"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 17,
+      "id": "P17",
+      "title": "Inject Faults Systematically",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you inject Faults Systematically?",
+      "phase": 5,
+      "phase_title": "Verification of dependability",
+      "slug": "inject-faults-systematically",
+      "folder": "modules/17-inject-faults-systematically",
+      "status": "scaffolded",
+      "implementation_batch": "P17",
+      "prerequisites": [
+        "P16"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 18,
+      "id": "P18",
+      "title": "Design an Accelerated-Life Test",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you design an Accelerated-Life Test?",
+      "phase": 5,
+      "phase_title": "Verification of dependability",
+      "slug": "design-an-accelerated-life-test",
+      "folder": "modules/18-design-an-accelerated-life-test",
+      "status": "scaffolded",
+      "implementation_batch": "P18",
+      "prerequisites": [
+        "P17"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 19,
+      "id": "P19",
+      "title": "Measure Maintainability",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you measure Maintainability?",
+      "phase": 5,
+      "phase_title": "Verification of dependability",
+      "slug": "measure-maintainability",
+      "folder": "modules/19-measure-maintainability",
+      "status": "scaffolded",
+      "implementation_batch": "P19",
+      "prerequisites": [
+        "P18"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 20,
+      "id": "P20",
+      "title": "Collect FDIR Evidence",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you collect FDIR Evidence?",
+      "phase": 5,
+      "phase_title": "Verification of dependability",
+      "slug": "collect-fdir-evidence",
+      "folder": "modules/20-collect-fdir-evidence",
+      "status": "scaffolded",
+      "implementation_batch": "P20",
+      "prerequisites": [
+        "P19"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 21,
+      "id": "P21",
+      "title": "Allocate Redundancy",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you allocate Redundancy?",
+      "phase": 6,
+      "phase_title": "Fault-tolerant architecture",
+      "slug": "allocate-redundancy",
+      "folder": "modules/21-allocate-redundancy",
+      "status": "scaffolded",
+      "implementation_batch": "P21",
+      "prerequisites": [
+        "P20"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 22,
+      "id": "P22",
+      "title": "Trade Coverage Against Complexity",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you trade Coverage Against Complexity?",
+      "phase": 6,
+      "phase_title": "Fault-tolerant architecture",
+      "slug": "trade-coverage-against-complexity",
+      "folder": "modules/22-trade-coverage-against-complexity",
+      "status": "scaffolded",
+      "implementation_batch": "P22",
+      "prerequisites": [
+        "P21"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 23,
+      "id": "P23",
+      "title": "Contain Fault Propagation",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you contain Fault Propagation?",
+      "phase": 6,
+      "phase_title": "Fault-tolerant architecture",
+      "slug": "contain-fault-propagation",
+      "folder": "modules/23-contain-fault-propagation",
+      "status": "scaffolded",
+      "implementation_batch": "P23",
+      "prerequisites": [
+        "P22"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 24,
+      "id": "P24",
+      "title": "Build an End-to-End FDIR Architecture",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you build an End-to-End FDIR Architecture?",
+      "phase": 6,
+      "phase_title": "Fault-tolerant architecture",
+      "slug": "build-an-end-to-end-fdir-architecture",
+      "folder": "modules/24-build-an-end-to-end-fdir-architecture",
+      "status": "scaffolded",
+      "implementation_batch": "P24",
+      "prerequisites": [
+        "P23"
+      ],
+      "evidence_level": "none"
+    }
+  ]
+}

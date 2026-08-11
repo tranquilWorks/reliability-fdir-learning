@@ -1,0 +1,46 @@
+{
+  "phases": [
+    {
+      "phase": 1,
+      "title": "Reliability fundamentals",
+      "module_start": 1,
+      "module_end": 4,
+      "learning_goal": "Build visible, manipulable intuition for reliability fundamentals."
+    },
+    {
+      "phase": 2,
+      "title": "Failure analysis",
+      "module_start": 5,
+      "module_end": 8,
+      "learning_goal": "Build visible, manipulable intuition for failure analysis."
+    },
+    {
+      "phase": 3,
+      "title": "Detection and isolation",
+      "module_start": 9,
+      "module_end": 12,
+      "learning_goal": "Build visible, manipulable intuition for detection and isolation."
+    },
+    {
+      "phase": 4,
+      "title": "Recovery and degradation",
+      "module_start": 13,
+      "module_end": 16,
+      "learning_goal": "Build visible, manipulable intuition for recovery and degradation."
+    },
+    {
+      "phase": 5,
+      "title": "Verification of dependability",
+      "module_start": 17,
+      "module_end": 20,
+      "learning_goal": "Build visible, manipulable intuition for verification of dependability."
+    },
+    {
+      "phase": 6,
+      "title": "Fault-tolerant architecture",
+      "module_start": 21,
+      "module_end": 24,
+      "learning_goal": "Build visible, manipulable intuition for fault-tolerant architecture."
+    }
+  ]
+}
