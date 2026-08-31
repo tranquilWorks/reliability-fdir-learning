@@ -45,12 +45,12 @@
       "phase_title": "Reliability fundamentals",
       "slug": "relate-hazard-rate-to-survival",
       "folder": "modules/02-relate-hazard-rate-to-survival",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P02",
       "prerequisites": [
         "P01"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 3,
