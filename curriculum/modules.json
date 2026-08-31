@@ -61,12 +61,12 @@
       "phase_title": "Reliability fundamentals",
       "slug": "compute-availability-from-failure-and-repair",
       "folder": "modules/03-compute-availability-from-failure-and-repair",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P03",
       "prerequisites": [
         "P02"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 4,
