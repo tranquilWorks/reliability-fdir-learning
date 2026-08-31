@@ -59,18 +59,18 @@ class LearnCliTests(unittest.TestCase):
         self.assertEqual(listing.returncode, 0, listing.stderr)
         self.assertEqual(len([line for line in listing.stdout.splitlines() if line.strip()]), 24)
 
-    def test_reference_and_p02_start_while_current_scaffold_refuses(self):
+    def test_all_implemented_modules_start_while_a_scaffold_refuses(self):
         for module in self.manifest["modules"]:
             if module["status"] != "implemented":
                 continue
             with self.subTest(implemented=module["id"]):
                 started = self.run_cli("start", module["id"])
                 self.assertEqual(started.returncode, 0, started.stderr)
-                self.assertIn("Guiding question:", started.stdout)
-
-        p02 = self.run_cli("start", "P02")
-        self.assertEqual(p02.returncode, 0, p02.stderr)
-        self.assertIn("P02 — Relate Hazard Rate to Survival", p02.stdout)
+                self.assertIn(f"{module['id']} — {module['title']}", started.stdout)
+                self.assertIn(
+                    f"Guiding question: {module['guiding_question']}",
+                    started.stdout,
+                )
 
         scaffold_module = next(
             (module for module in self.manifest["modules"] if module["status"] == "scaffolded"),
@@ -82,10 +82,14 @@ class LearnCliTests(unittest.TestCase):
         self.assertEqual(scaffold.returncode, 2)
         self.assertIn("Activate its governed implementation batch", scaffold.stdout)
 
-    def test_p02_executable_check_is_discoverable(self):
-        check = self.run_cli("check", "P02")
-        self.assertEqual(check.returncode, 0, check.stderr)
-        self.assertIn("run_module_checks('P02')", check.stdout)
+    def test_all_implemented_executable_checks_are_discoverable(self):
+        for module in self.manifest["modules"]:
+            if module["status"] != "implemented":
+                continue
+            with self.subTest(implemented=module["id"]):
+                check = self.run_cli("check", module["id"])
+                self.assertEqual(check.returncode, 0, check.stderr)
+                self.assertIn(f"run_module_checks('{module['id']}')", check.stdout)
 
     def test_rejected_scaffold_does_not_replace_current_module(self):
         scaffold_module = next(
@@ -97,13 +101,21 @@ class LearnCliTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as temporary:
             fixture, environment = self.make_fixture(temporary)
-            selected = self.invoke(fixture, environment, "start", "P02")
+            implemented_module = next(
+                module
+                for module in reversed(self.manifest["modules"])
+                if module["status"] == "implemented"
+            )
+            selected = self.invoke(fixture, environment, "start", implemented_module["id"])
             self.assertEqual(selected.returncode, 0, selected.stderr)
             rejected = self.invoke(fixture, environment, "start", scaffold_module["id"])
             self.assertEqual(rejected.returncode, 2)
             resumed = self.invoke(fixture, environment, "continue")
             self.assertEqual(resumed.returncode, 0, resumed.stderr)
-            self.assertIn("P02 — Relate Hazard Rate to Survival", resumed.stdout)
+            self.assertIn(
+                f"{implemented_module['id']} — {implemented_module['title']}",
+                resumed.stdout,
+            )
 
     def test_rejected_scaffold_does_not_create_fresh_progress_state(self):
         scaffold_module = next(
