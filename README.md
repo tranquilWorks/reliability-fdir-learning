@@ -22,6 +22,7 @@ From a shell:
 ./bin/learn start P01
 ./bin/learn start P02
 ./bin/learn start P03
+./bin/learn start P04
 ./bin/learn list
 ./bin/learn status
 ```
@@ -38,13 +39,15 @@ In MATLAB:
 launch_lesson("P01")
 launch_lesson("P02")
 launch_lesson("P03")
+launch_lesson("P04")
 run_module_checks("P01")
 run_module_checks("P02")
 run_module_checks("P03")
+run_module_checks("P04")
 ```
 
-`P01` remains the complete reference implementation. `P02` and `P03` are implemented governed
-modules; `P04`–`P24` remain intentional scaffolds so each can be implemented in a bounded,
+`P01` remains the complete reference implementation. `P02` through `P04` are implemented governed
+modules; `P05`–`P24` remain intentional scaffolds so each can be implemented in a bounded,
 reviewable batch.
 
 ## Module layout
