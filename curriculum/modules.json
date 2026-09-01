@@ -141,12 +141,12 @@
       "phase_title": "Failure analysis",
       "slug": "prioritize-risk-quantitatively",
       "folder": "modules/08-prioritize-risk-quantitatively",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P08",
       "prerequisites": [
         "P07"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 9,
