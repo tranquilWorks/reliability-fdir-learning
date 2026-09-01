@@ -1,7 +1,69 @@
 %% P09 - Generate a Diagnostic Residual
 % Guiding question:
-% What inputs, observable effects, and failure modes matter when you generate a Diagnostic Residual?
-%
-% This lesson is scaffolded and intentionally refuses to masquerade as
-% implemented instruction.
-error('P09 is scaffolded. Implement model.m, experiment.m, interactive.m, and checks first.');
+% What inputs, observable effects, and failure modes matter when you
+% generate a Diagnostic Residual?
+
+%% Read the monitoring boundary before looking at a discrepancy
+disp(['P08 ranked an A-only component-loss scenario first in its synthetic ' ...
+    'economic example. Pump B still preserves degraded mission success, so ' ...
+    'P09 does not relabel that component loss as automatic mission failure.']);
+disp(['Monitor Pump A with known normalized speed command u and measured ' ...
+    'cooling flow y. A nominal model predicts y-hat from that same command. ' ...
+    'The diagnostic residual r = y-y-hat has units L/min.']);
+disp(['A negative residual means measured flow is below expectation. The ' ...
+    '20% loss used here is conditional magnitude after a deterministic ' ...
+    'injection, not P08 occurrence probability q_A.']);
+
+%% Make one prediction, then inspect measured and predicted flow
+disp(['Prediction: should a correctly generated residual jump when the known ' ...
+    'speed command changes normally from 0.5 to 0.8?']);
+baseline = model(0.20,10,0.10);
+flowFigure = figure('Name','P09 lesson baseline: flow comparison');
+flowAxes = axes('Parent',flowFigure);
+plot(flowAxes,baseline.timeSeconds,baseline.measuredFlowLpm, ...
+    'LineWidth',1.5,'DisplayName','Measured flow y');
+hold(flowAxes,'on');
+plot(flowAxes,baseline.timeSeconds,baseline.predictedFlowLpm,'--', ...
+    'LineWidth',1.7,'DisplayName','Predicted flow y-hat(u)');
+xline(flowAxes,baseline.commandStepTimeSeconds,':','Command change', ...
+    'HandleVisibility','off');
+xline(flowAxes,baseline.faultTimeSeconds,':','Loss injection', ...
+    'HandleVisibility','off');
+hold(flowAxes,'off'); grid(flowAxes,'on');
+xlabel(flowAxes,'Time (s)'); ylabel(flowAxes,'Pump-A cooling flow (L/min)');
+title(flowAxes,'Prediction follows the known command');
+legend(flowAxes,'Location','best'); ylim(flowAxes,[0 9]);
+disp(['At 10 s both traces respond to the known command. At 20 s only measured ' ...
+    'flow loses effectiveness, so the prediction provides an analytical ' ...
+    'reference rather than a redundant physical sensor.']);
+
+%% Advance once to the signed residual
+residualFigure = figure('Name','P09 lesson baseline: diagnostic residual');
+residualAxes = axes('Parent',residualFigure);
+plot(residualAxes,baseline.timeSeconds,baseline.residualLpm, ...
+    'LineWidth',1.6);
+hold(residualAxes,'on'); yline(residualAxes,0,'k:');
+xline(residualAxes,baseline.commandStepTimeSeconds,':','Command change');
+xline(residualAxes,baseline.faultTimeSeconds,':','Loss injection');
+hold(residualAxes,'off'); grid(residualAxes,'on');
+xlabel(residualAxes,'Time (s)');
+ylabel(residualAxes,'Diagnostic residual r = y-y-hat (L/min)');
+title(residualAxes,'Normal input effect cancels; conditional flow loss remains');
+ylim(residualAxes,[-1.9 0.3]);
+fprintf(['Command-step residual change = %.4f L/min; fault-induced change = ' ...
+    '%.4f L/min.\n'],baseline.commandStepResidualChangeLpm, ...
+    baseline.faultResidualChangeLpm);
+disp(['The matched residual stays centered at zero through the normal command ' ...
+    'transition, then centers at -1.6 L/min after the 20% loss. The ripple ' ...
+    'is deterministic nuisance, not field-characterized sensor noise.']);
+
+%% Move one lever, reset, then move the independent lever
+disp(['Open the live window at baseline. First change only conditional ' ...
+    'effectiveness loss and observe the post-fault mean.']);
+disp(['Reset. Then change only predictor gain. A mismatch creates a residual ' ...
+    'while healthy and can cancel the fault mean at one operating point.']);
+disp(['Run experiment.m one section at a time for both exact sweeps and the ' ...
+    'deliberately broken constant predictor that omits the known command.']);
+disp(['A residual is a discrepancy, not an alarm threshold, unique diagnosis, ' ...
+    'Bayesian posterior, or recovery action. Those decisions follow in later modules.']);
+interactive;
