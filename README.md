@@ -25,6 +25,7 @@ From a shell:
 ./bin/learn start P04
 ./bin/learn start P05
 ./bin/learn start P06
+./bin/learn start P07
 ./bin/learn list
 ./bin/learn status
 ```
@@ -44,16 +45,18 @@ launch_lesson("P03")
 launch_lesson("P04")
 launch_lesson("P05")
 launch_lesson("P06")
+launch_lesson("P07")
 run_module_checks("P01")
 run_module_checks("P02")
 run_module_checks("P03")
 run_module_checks("P04")
 run_module_checks("P05")
 run_module_checks("P06")
+run_module_checks("P07")
 ```
 
-`P01` remains the complete reference implementation. `P02` through `P06` are implemented governed
-modules; `P07`–`P24` remain intentional scaffolds so each can be implemented in a bounded,
+`P01` remains the complete reference implementation. `P02` through `P07` are implemented governed
+modules; `P08`–`P24` remain intentional scaffolds so each can be implemented in a bounded,
 reviewable batch.
 
 ## Module layout
