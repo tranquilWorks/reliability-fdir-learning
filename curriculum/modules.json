@@ -173,12 +173,12 @@
       "phase_title": "Detection and isolation",
       "slug": "move-a-fault-threshold",
       "folder": "modules/10-move-a-fault-threshold",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P10",
       "prerequisites": [
         "P09"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 11,
