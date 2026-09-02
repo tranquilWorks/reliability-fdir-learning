@@ -9,8 +9,10 @@ those failure modes into a functional success topology with one shared supply fe
 pumps. P08 ranks P07's disjoint outcomes by common-unit expected economic loss and exposes why
 ordinal category products are not quantitative risk. P09 turns Pump-A command and measured flow
 into a signed diagnostic residual, then exposes effectiveness-loss, predictor-mismatch, and
-omitted-input signatures without yet defining an alarm. P10-P24 remain intentional scaffolds mapped
-one-to-one to Portfolio Control batches. A
+omitted-input signatures without yet defining an alarm. P10 places a signed threshold on that
+residual and makes the deterministic false-alarm versus missed-detection tradeoff visible while
+preserving the residual's sign and units. P11-P24 remain intentional scaffolds mapped one-to-one to
+Portfolio Control batches. A
 learner session follows read → visualize → move one lever → visualize the change → read/explain,
 then a broken case, checks, and teach-back.
 
