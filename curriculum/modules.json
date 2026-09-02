@@ -189,12 +189,12 @@
       "phase_title": "Detection and isolation",
       "slug": "isolate-competing-faults",
       "folder": "modules/11-isolate-competing-faults",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P11",
       "prerequisites": [
         "P10"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 12,
